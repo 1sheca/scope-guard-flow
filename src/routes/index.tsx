@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from "react";
 import {
   ArrowLeft, ArrowRight, Check, ChevronDown, CircleDollarSign, Database,
   FileCheck2, FileText, Gauge, Landmark, LockKeyhole, Play, Plus, RefreshCw,
@@ -45,7 +45,7 @@ function KriPlatform() {
   const [kris, setKris] = useState(initialKris);
   const [query, setQuery] = useState("");
   const [risk, setRisk] = useState("All");
-  const [executionName, setExecutionName] = useState(initialKris[0].name);
+  const [executionName, setExecutionName] = useState("PO Creation without PR Approval");
   const [batch, setBatch] = useState(false);
 
   const go = (next: Screen) => { setScreen(next); window.scrollTo({ top: 0, behavior: "smooth" }); };
@@ -116,7 +116,7 @@ function Execution({ name, batch, onBack }: { name: string; batch: boolean; onBa
   </section>;
 }
 
-function PageTitle({ eyebrow, title, onBack, aside, compact = false }: { eyebrow: string; title: string; onBack: () => void; aside?: React.ReactNode; compact?: boolean }) { return <div className="flex flex-1 items-center justify-between gap-4"><div className="flex min-w-0 items-center gap-4"><Button aria-label="Go back" title="Go back" variant="console" size="icon" onClick={onBack}><ArrowLeft /></Button><div className="min-w-0"><p className="text-[11px] uppercase tracking-[0.3em] text-gold">{eyebrow}</p><h1 className={`mt-1 truncate font-serif font-medium ${compact ? "text-lg sm:text-2xl" : "text-2xl sm:text-3xl"}`}>{title}</h1></div></div><div className="hidden md:block">{aside}</div></div>; }
+function PageTitle({ eyebrow, title, onBack, aside, compact = false }: { eyebrow: string; title: string; onBack: () => void; aside?: ReactNode; compact?: boolean }) { return <div className="flex flex-1 items-center justify-between gap-4"><div className="flex min-w-0 items-center gap-4"><Button aria-label="Go back" title="Go back" variant="console" size="icon" onClick={onBack}><ArrowLeft /></Button><div className="min-w-0"><p className="text-[11px] uppercase tracking-[0.3em] text-gold">{eyebrow}</p><h1 className={`mt-1 truncate font-serif font-medium ${compact ? "text-lg sm:text-2xl" : "text-2xl sm:text-3xl"}`}>{title}</h1></div></div><div className="hidden md:block">{aside}</div></div>; }
 function StatusBadge({ tone, label }: { tone: string; label: string }) { const styles = tone === "success" ? "border-success/30 bg-success/10 text-success" : tone === "warning" ? "border-warning/30 bg-warning/10 text-warning" : "border-risk/30 bg-risk/10 text-risk"; return <span className={`rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${styles}`}>{label}</span>; }
-function Field({ label, children, wide = false }: { label: string; children: React.ReactNode; wide?: boolean }) { return <label className={wide ? "md:col-span-2" : ""}><span className="mb-2 block text-xs font-medium text-muted-foreground">{label}</span>{children}</label>; }
+function Field({ label, children, wide = false }: { label: string; children: ReactNode; wide?: boolean }) { return <label className={wide ? "md:col-span-2" : ""}><span className="mb-2 block text-xs font-medium text-muted-foreground">{label}</span>{children}</label>; }
 function SourceCard({ icon: Icon, title, detail, label, tone }: { icon: typeof UploadCloud; title: string; detail: string; label: string; tone: string }) { return <div className={`flex items-center justify-between gap-3 rounded-xl border px-4 py-3 ${tone === "success" ? "border-success/25 bg-success/5" : "border-border bg-surface"}`}><div className="flex min-w-0 items-center gap-3"><Icon size={18} className={tone === "success" ? "text-success" : "text-gold-bright"} /><div className="min-w-0"><p className="truncate text-sm font-medium">{title}</p><p className="text-[11px] text-muted-foreground">{detail}</p></div></div><span className={`rounded-full px-2 py-1 text-[10px] font-semibold uppercase ${tone === "success" ? "bg-success/15 text-success" : "bg-gold/15 text-gold-bright"}`}>{label}</span></div>; }

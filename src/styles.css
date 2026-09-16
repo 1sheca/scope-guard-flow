@@ -183,6 +183,19 @@
   }
 }
 
+@utility field {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  outline: none;
+  &:focus { border-color: var(--gold); box-shadow: 0 0 0 2px color-mix(in oklab, var(--gold) 14%, transparent); }
+  &::placeholder { color: var(--muted-foreground); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
 }
