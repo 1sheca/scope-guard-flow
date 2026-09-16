@@ -11,9 +11,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Enterprise KRI Monitoring | VantageRisk" },
+      { title: "Enterprise KRI Monitoring | Audit Engines" },
       { name: "description", content: "Monitor, create, and execute enterprise Key Risk Indicators across critical business domains." },
-      { property: "og:title", content: "Enterprise KRI Monitoring | VantageRisk" },
+      { property: "og:title", content: "Enterprise KRI Monitoring | Audit Engines" },
       { property: "og:description", content: "A real-time enterprise platform for managing and processing Key Risk Indicators." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -65,7 +65,7 @@ function KriPlatform() {
           {screen === "execution" && <Execution name={executionName} batch={batch} onBack={() => go("dashboard")} />}
         </main>
         <footer className="mt-12 flex flex-col gap-2 border-t border-border/60 pt-5 text-[11px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <span>VantageRisk · Enterprise KRI Monitoring & Processing</span><span>Secure operations console</span>
+          <span>Audit Engines · Enterprise KRI Monitoring & Processing</span><span>Secure operations console</span>
         </footer>
       </div>
     </div>
