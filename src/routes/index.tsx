@@ -60,7 +60,7 @@ function KriPlatform() {
         <AppHeader />
         <main>
           {screen === "scopes" && <ScopeScreen onOpen={() => go("dashboard")} />}
-          {screen === "dashboard" && <Dashboard kris={filtered} query={query} risk={risk} setQuery={setQuery} setRisk={setRisk} onBack={() => go("scopes")} onAdd={() => go("intake")} onExecute={execute} />}
+          {screen === "dashboard" && <Dashboard kris={filtered} query={query} risk={risk} setQuery={setQuery} setRisk={setRisk} onBack={() => go("scopes")} onAdd={() => go("intake")} onExecute={execute} onToggle={(id) => setKris((items) => { const target = items.find((k) => k.id === id); if (target) toast[target.active ? "info" : "success"](`${target.name} ${target.active ? "deactivated" : "activated"}`, { description: target.active ? "This KRI is excluded from executions until re-enabled." : "This KRI is back in the execution cycle." }); return items.map((k) => (k.id === id ? { ...k, active: !k.active } : k)); })} onDelete={(id) => setKris((items) => { const target = items.find((k) => k.id === id); if (target) toast.error("KRI removed", { description: `${target.id} · ${target.name} has been deleted.` }); return items.filter((k) => k.id !== id); })} />}
           {screen === "intake" && <Intake onCancel={() => go("dashboard")} onSave={(kri) => { setKris((items) => [...items, kri]); toast.success("KRI added to Source to Pay", { description: `${kri.id} is ready for execution.` }); go("dashboard"); }} />}
           {screen === "execution" && <Execution name={executionName} batch={batch} onBack={() => go("dashboard")} />}
         </main>
