@@ -74,7 +74,7 @@ function KriPlatform() {
 
 function AppHeader() {
   return <header className="flex items-center justify-between border-b border-border/70 pb-5">
-    <div className="flex items-center gap-3"><div className="grid size-10 place-items-center rounded-lg bg-gradient-to-br from-gold-bright to-gold font-serif text-lg font-semibold text-primary-foreground shadow-gold">V</div><div><div className="font-serif text-lg text-foreground">Vantage<span className="text-gold">Risk</span></div><div className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">KRI Command</div></div></div>
+    <div className="flex items-center gap-3"><div className="grid size-10 place-items-center rounded-lg bg-gradient-to-br from-gold-bright to-gold font-serif text-lg font-semibold text-primary-foreground shadow-gold">A</div><div><div className="font-serif text-lg text-foreground">Audit <span className="text-gold">Engines</span></div><div className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">KRI Command</div></div></div>
     <div className="flex items-center gap-4"><div className="hidden items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 text-xs text-muted-foreground md:flex"><span className="status-pulse size-1.5 rounded-full bg-success" />All systems nominal</div><div className="grid size-9 place-items-center rounded-full border border-border bg-surface-raised text-xs font-semibold text-gold">AR</div></div>
   </header>;
 }
