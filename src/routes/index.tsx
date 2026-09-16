@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from "re
 import {
   ArrowLeft, ArrowRight, Check, ChevronDown, CircleDollarSign, Database,
   FileCheck2, FileText, Gauge, Landmark, LockKeyhole, Play, Plus, RefreshCw,
-  Search, Server, ShieldCheck, Sparkles, UploadCloud,
+  Search, Server, ShieldCheck, Sparkles, Trash2, UploadCloud,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -23,13 +23,13 @@ export const Route = createFileRoute("/")({
 });
 
 type Screen = "scopes" | "dashboard" | "intake" | "execution";
-type Kri = { id: string; name: string; category: string; risk: "High" | "Medium" | "Low"; threshold: string; executed: string };
+type Kri = { id: string; name: string; category: string; risk: "High" | "Medium" | "Low"; threshold: string; executed: string; active: boolean };
 
 const initialKris: Kri[] = [
-  { id: "S2P-014", name: "PO Creation without PR Approval", category: "Procurement", risk: "High", threshold: "> 3% of POs", executed: "2h ago" },
-  { id: "S2P-021", name: "Duplicate Vendor Payments", category: "Payments", risk: "High", threshold: "> 0 incidents", executed: "5h ago" },
-  { id: "S2P-033", name: "Contract Price Variance Threshold", category: "Contracts", risk: "Medium", threshold: "> 5% variance", executed: "1d ago" },
-  { id: "S2P-047", name: "Late Payment Interest Exposure", category: "Compliance", risk: "Low", threshold: "< 1.2% AP", executed: "3d ago" },
+  { id: "S2P-014", name: "PO Creation without PR Approval", category: "Procurement", risk: "High", threshold: "> 3% of POs", executed: "2h ago", active: true },
+  { id: "S2P-021", name: "Duplicate Vendor Payments", category: "Payments", risk: "High", threshold: "> 0 incidents", executed: "5h ago", active: true },
+  { id: "S2P-033", name: "Contract Price Variance Threshold", category: "Contracts", risk: "Medium", threshold: "> 5% variance", executed: "1d ago", active: true },
+  { id: "S2P-047", name: "Late Payment Interest Exposure", category: "Compliance", risk: "Low", threshold: "< 1.2% AP", executed: "3d ago", active: true },
 ];
 
 const scopes = [
